@@ -4,15 +4,28 @@
 
 
 using namespace std;
+
+float multiply(float a, float b){
+	float r;
+	r = a * b;
+	return r;
+	
+}
+
+void closing_remarks(){
+	cout<<"Thank you for using Unit Converter";
+}
+
 int main()
 {
 	
     int option;
     float number,result;
     char repeat;
+    bool done = false;
     
 top:
-	system("color 0A");
+	system("color 0C");
     cout<<"\t\t\t" <<"Unit Converter"<<endl;
     cout<<"              "<<endl;
     cout<<"1) Miles To Km"; // multiply 1.6090
@@ -24,7 +37,7 @@ top:
     cout<<"7) Pounds to kilograms"; // multiply 0.4536
     cout<<"\t 8) Tons to kilograms"; // multiply 1016.0000
     cout<<"\t\t 9) Grams to pounds"<< '\n' <<endl; // multiply 0.0022
-    cout<<"\t\t\t 10) Exit"<<endl;
+    cout<<"\t\t\t E)xit"<<endl;
     cout<<"-------------------------------------------------------------------------------"<<endl;
     
     cout<<"Select an option: "; 
@@ -32,18 +45,20 @@ top:
 	
 	
 	
-	if (option > 10 || option < 1 ){
+	if (option > 9 || option < 1 ){
 		cout<<"You Entered the Wrong Selection!!" << '\n' <<endl;	
 goto top;
+		
 	}
 	
     switch(option)
     {
         case 1:
         	system("color DE");
-            cout<<"Enter value in miles: "; cin>>number;
-            result = number * 1.6090;
-            cout<< std::setw(10)<<number<<" miles in km is "<<setprecision(20) <<result <<"km" <<'\n' << endl;
+            cout<<"Enter value in miles: "; 
+			cin>>number;
+            
+            cout<< std::setw(10)<< number <<" miles in km is "<<setprecision(20) << multiply(number, 1.6090) <<'\n' << endl;
             
             cout<<"Do you want to continue? y/n: " ; cin>>repeat;
 			cout<<"--------------------------------------------------------------------------------"<<endl;
@@ -51,29 +66,31 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
             
         break;
         
         case 2:
-            cout<<"Enter value in leagues: "; cin>>number;
-            result = number * 4.83;
-            cout<<number<<" leagues in km is "<<result<< '\n' << endl;
+            cout<<"Enter value in leagues: "; 
+			cin>>number;
+
+            cout<<number<<" leagues in km is "<< multiply (number, 4.83) << '\n' << endl;
             
             cout<<"Do you want to continue? y/n: " ; cin>>repeat;
-			cout<<"-----------------------------------------------------------------------------"<<endl;
+			cout<<"---------------------------------------------------------------------------------"<<endl;
 			if(repeat == 'y'){
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
+			
         break;
         
     
         case 3:
             cout<<"Enter value in tons: "; cin>>number;
             result = number * 35273.96;
-            cout<<number<<" tons in ounces is "<<result << '\n' << endl;
+            cout<<number<<" tons in ounces is "<<setprecision(20) <<result << '\n' << endl;
             
             cout<<"Do you want to continue? y/n: " ; cin>>repeat;
 			cout<<"--------------------------------------------------------------------------------"<<endl;
@@ -81,7 +98,7 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
         break;
         
         case 4:
@@ -98,7 +115,7 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
         break;
         
         case 5:
@@ -113,7 +130,8 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
+			
         break;
         
         case 6:
@@ -128,7 +146,7 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
         break;
         
         case 7:
@@ -144,7 +162,7 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
         break;
         
     case 8:
@@ -159,7 +177,7 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you using Unit Converter";
+			closing_remarks();
         break;
         
     case 9:
@@ -174,11 +192,14 @@ goto top;
 				main();
 			}
 			else 
-			cout<<"Thank you for using Unit Converter";
+			closing_remarks();
         break;
     
-        case 10:
+        case 'E':
+        case 'e':
+        	done = true;
             cout<<"Bye!";
+            
             break;
     }
     return 0;
